@@ -27,7 +27,7 @@ d3.json(url).then(function(data) {
     };
   
   // Data trace array
-  let bardata = [trace1];
+  let barData = [trace1];
   
   // Apply a title to the layout
   let layout = {
@@ -35,27 +35,32 @@ d3.json(url).then(function(data) {
   };
   
   // Render the plot to the div tag with id "plot"
-  Plotly.newPlot("bar", bardata, layout);
+  Plotly.newPlot("bar", barData, layout);
 
   // Trace for the Bubble Chart
   let trace2 = {
-    x: searchResults.sample_values,
-    y: searchResults.otu_ids.map(id=>`OTU ${id}`),
-    text:searchResults.otu_labels, 
-    type: "bar",
-    orientation: "h"
-  };
+    x: searchResults.otu_ids,
+    y: searchResults.sample_values,
+    text: searchResults.otu_labels,
+    mode: "markers",
+    marker: {
+        size: searchResults.sample_values,
+        color: searchResults.otu_ids,
+        colorscale: "Earth"
+    }
+    };
 
 // Data trace array
-let bubbledata = [trace2];
+let bubbleData = [trace2];
 
 // Apply a title to the layout
 let layout2 = {
-  title: "Top 10 OTUs in Human Navels"
+    hovermode: "closest",
+    xaxis: {title: "OTU ID"},
 };
 
 // Render the plot to the div tag with id "plot"
-Plotly.newPlot("bar", bubbledata, layout2);
+Plotly.newPlot("bubble", bubbleData, layout2);
 
 });
 }
