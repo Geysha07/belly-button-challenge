@@ -1,2 +1,2 @@
-# belly-button-challenge
+# Module 14 Challenge: Belly Button Biodiversity Dashboard
 In this challenge, we created an interactive dashboard using data from a study of microbes found in human navels. The study revealed that there is a small handful of microbes, or OTUs(operational taxonomic units) that were present in over 70% of people. Using the D3 library and Plotly, we were able to read in samples from the URL and then plot the results in an interactive dashboard, which is updated depending on what sample is selected. 
